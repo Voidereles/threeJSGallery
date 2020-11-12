@@ -1,0 +1,34 @@
+body {
+    overflow: hidden;
+}
+
+.n {
+    position: absolute;
+    top: 100px;
+    width: 200px;
+    height: 10px;
+    background: #000;
+
+    &1 {
+        top: 200px;
+    }
+
+    &2 {
+        top: 300px;
+    }
+
+    &3 {
+        top: 400px;
+    }
+
+    &4 {
+        top: 500px;
+    }
+}
+
+.block {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    background: red;
+}
