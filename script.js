@@ -19,9 +19,14 @@ function raf() {
     speed *= 0.8; //ZWIEKSZENIE sprawi, że szybkość nie będzie spadać
 
     objs.forEach((o, i) => {
-        o.dist = (position - i);
-        //position - i to jest wartość 0 i potem rośnie
+        o.dist = Math.min(Math.abs(position - i), 1);
+
+        //(position - i) to jest wartość 0 i potem rośnie, 
+        //jedynka jest dana po to, by nie przekroczyło 1
+        //jeśli nei będzie jedynki to może się scalować w nieskończoność
+        //i te paski byłyby bardzo duże
         o.dist = Math.abs(o.dist);
+
         elems[i].style.transform = `scale(${o.dist})`;
     });
 
@@ -35,7 +40,7 @@ function raf() {
 
 
 
-    block.style.transform = `translate(0,${position*100}px`;
+    block.style.transform = `translate(0,${position*100 + 50}px`;
     // raf - request animation frame
     window.requestAnimationFrame(raf);
 }
