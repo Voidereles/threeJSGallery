@@ -1,17 +1,20 @@
 uniform float time;
 varying vec2 vUv;
-varying vec2 vUv1;
-varying vec4 vPosition;
-
-uniform sampler2D texture1;
-uniform sampler2D texture2;
+varying vec3 vPosition;
+float PI = 3.141592653;
+uniform float distanceFromCenter;
 uniform vec2 pixels;
-uniform vec2 uvRate1;
 
 void main() {
-  vUv = uv;
-  vec4 mvPosition = modelViewMatrix * vec4( position, 1. );
-  gl_PointSize = 5000. * ( 1. / - mvPosition.z );
-  //when particles will be more far from the camera they will be smaller
-  gl_Position = projectionMatrix * mvPosition;
+    // vUv = (uv - vec2(0.5))*0.7 + vec2(0.5); //no zooming
+    vUv = (uv - vec2(0.5))*(0.8 - 0.2*distanceFromCenter*(2. - distanceFromCenter)) + vec2(0.5);
+    vec3 pos = position;
+
+pos.y += sin(PI*uv.x) * 0.02;
+pos.z += sin(PI*uv.x) * 0.02;
+//bending
+
+    pos.y += sin(time*0.3)*0.02;
+    vUv.y += sin(time*0.3)*0.02;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
 }
