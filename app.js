@@ -1,4 +1,5 @@
 import Sketch from './threeScript.js';
+import gsap from 'gsap';
 let ske = new Sketch({
     dom: document.getElementById('container')
 });
@@ -60,7 +61,7 @@ function raf() {
 
     // position += diff * 0.015;
     if (attractMode) {
-        position += -(position - attractTo) * 0.05;
+        position += -(position - attractTo) * 0.04;
     } else {
         position += Math.sign(diff) * Math.pow(Math.abs(diff), 0.7) * 0.035;
         //druga propzoycja działa szybciej.
@@ -82,13 +83,26 @@ raf();
 
 let navs = [...document.querySelectorAll('li')];
 let nav = document.querySelector('ul');
+
+let rots = ske.groups.map(e => e.rotation);
 nav.addEventListener('mouseenter', () => {
     attractMode = true;
-    console.log(attractMode);
+    gsap.to(rots, {
+        duration: 0.5,
+        x: -0.5,
+        y: 0,
+        z: 0
+    })
 });
 
 nav.addEventListener('mouseleave', () => {
     attractMode = false;
+    gsap.to(rots, {
+        duration: 0.5,
+        y: -0.3,
+        x: -0.1,
+        z: -0.1
+    })
 });
 
 navs.forEach(el => {

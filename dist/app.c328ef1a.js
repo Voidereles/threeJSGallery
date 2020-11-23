@@ -45177,6 +45177,8 @@ exports.default = Sketch;
 
 var _threeScript = _interopRequireDefault(require("./threeScript.js"));
 
+var _gsap = _interopRequireDefault(require("gsap"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -45239,7 +45241,7 @@ function raf() {
   var diff = rounded - position; // position += diff * 0.015;
 
   if (attractMode) {
-    position += -(position - attractTo) * 0.05;
+    position += -(position - attractTo) * 0.04;
   } else {
     position += Math.sign(diff) * Math.pow(Math.abs(diff), 0.7) * 0.035; //druga propzoycja działa szybciej.
 
@@ -45256,12 +45258,28 @@ raf();
 var navs = _toConsumableArray(document.querySelectorAll('li'));
 
 var nav = document.querySelector('ul');
+var rots = ske.groups.map(function (e) {
+  return e.rotation;
+});
 nav.addEventListener('mouseenter', function () {
   attractMode = true;
-  console.log(attractMode);
+
+  _gsap.default.to(rots, {
+    duration: 0.5,
+    x: -0.5,
+    y: 0,
+    z: 0
+  });
 });
 nav.addEventListener('mouseleave', function () {
   attractMode = false;
+
+  _gsap.default.to(rots, {
+    duration: 0.5,
+    y: -0.3,
+    x: -0.1,
+    z: -0.1
+  });
 });
 navs.forEach(function (el) {
   el.addEventListener('mouseover', function () {
@@ -45270,7 +45288,7 @@ navs.forEach(function (el) {
     attractTo = Number(el.getAttribute('data-nav'));
   });
 });
-},{"./threeScript.js":"threeScript.js"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./threeScript.js":"threeScript.js","gsap":"node_modules/gsap/index.js"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
