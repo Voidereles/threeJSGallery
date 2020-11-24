@@ -28,9 +28,9 @@ export default class Sketch {
         this.renderer.outputEncoding = THREE.sRGBEncoding;
 
         this.container = options.dom;
-        this.camera = new THREE.PerspectiveCamera(70, (window.innerWidth / 2) / window.innerHeight, 0.001, 1000);
+        this.camera = new THREE.PerspectiveCamera(70, (window.innerWidth) / window.innerHeight, 0.001, 1000);
 
-        this.camera.position.set(0, 0, 1.8);
+        this.camera.position.set(-1, 0, 1.8);
         // this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
         this.time = 0;
@@ -63,6 +63,8 @@ export default class Sketch {
             this.groups.push(group);
             this.scene.add(group);
             this.meshes.push(mesh);
+            console.log(group);
+            // console.log(groups);
             mesh.position.y = i * 1.2;
             // mesh.rotation.x = i * -0.1;
             group.rotation.y = -0.3;
@@ -144,16 +146,17 @@ export default class Sketch {
         });
     }
 
-    stop() {
-        this.isPlaying = false;
-    }
+    // stop() {
+    //     this.isPlaying = false;
+    // }
 
-    play() {
-        if (!this.isPlaying) {
-            this.render();
-            this.isPlaying = true;
-        }
-    }
+    // play() {
+    //     if (!this.isPlaying) {
+    //         this.render();
+    //         this.isPlaying = true;
+    //     }
+    // }
+
 
     render() {
         if (!this.isPlaying) return;
