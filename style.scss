@@ -1,56 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;400&display=swap');
+
+
 body {
     overflow: hidden;
+    background: #eeeeee;
+    margin: 0;
+    padding: 0;
 }
 
-// .n {
-//     position: absolute;
-//     top: 100px;
-//     width: 200px;
-//     height: 10px;
-//     background: green;
-
-//     &1 {
-//         top: 200px;
-//     }
-
-//     &2 {
-//         top: 300px;
-//     }
-
-//     &3 {
-//         top: 400px;
-//     }
-
-//     &4 {
-//         top: 500px;
-//     }
-// }
-
-.block {
-    height: 100px;
-    width: 100px;
-    position: absolute;
-    z-index: 100;
-    background: red;
-}
-
-#container {
-    width: 100vw;
+.threeJS__container {
+    width: 50vw;
     height: 100vh;
     top: 0;
-    left: 0;
+    right: 0;
     position: fixed;
     z-index: -1;
     pointer-events: none;
 }
 
-ul {
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 100;
-    border: 1px solid black;
-    width: 200px;
-    list-style-type: none;
-    font-size: 30px;
+.main-gallery {
+    width: 100%;
+
+    &__wrap {
+        display: none;
+    }
+
+    &__items {
+        // position: fixed;
+        // left: 1rem;
+        // top: -130vh;
+        z-index: 100;
+        padding: 1.5rem 2.5rem;
+        margin: 0;
+        // border: 1px solid #eeeeee;
+        color: black;
+        width: calc(50% - 3rem);
+        list-style-type: none;
+        font-size: 30px;
+        height: calc(100vh - 3rem);
+        position: relative;
+        transition: 0.3s;
+    }
+
+    &__item {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__heading {
+        font-family: 'Cormorant Infant', serif;
+        font-weight: 300;
+        margin-bottom: 1rem;
+        margin-top: 0;
+    }
+
+    &__description {
+        font-size: 1.2rem;
+        font-family: 'Cormorant Infant', serif;
+        font-weight: 400;
+    }
+
+    &__floral {
+        position: absolute;
+        max-width: 5%;
+        left: 2.5rem;
+        bottom: 2.5rem;
+    }
 }

@@ -22,21 +22,40 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <!-- <div class="block" id="block"></div> -->
-    <ul>
-        <li data-nav="4">1</li>
-        <li data-nav="3">2</li>
-        <li data-nav="2">3</li>
-        <li data-nav="1">4</li>
-        <li data-nav="0">5</li>
-    </ul>
-    <div id="wrap">
-        <div class="n"><img src="./img/1.png" width="60" alt="img"></div>
-        <div class="n n1"><img src="./img/2.png" width="60" alt="img"></div>
-        <div class="n n2"><img src="./img/3.png" width="60" alt="img"></div>
-        <div class="n n3"><img src="./img/4.png" width="60" alt="img"></div>
-        <div class="n n4"><img src="./img/1.png" width="60" alt="img"></div>
-    </div>
-    <div id="container"></div>
+
+
+    <section class="main-gallery">
+        <ul class="main-gallery__items" id="wrapImages">
+            <li class="main-gallery__item" data-nav="0">
+                <h2 class="main-gallery__heading">PHL Group</h2>
+                <p class="main-gallery__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+                    enim quod, ab eum voluptate unde nulla cum error et delectus eaque inventore? Aspernatur rem et eum
+                    id tempore fugit laborum!</p>
+            </li>
+            <li class="main-gallery__item" data-nav="1">
+                <h2 class="main-gallery__heading">Do Gara</h2>
+                <p class="main-gallery__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+                    enim quod, ab eum voluptate unde nulla cum error et delectus eaque inventore? Aspernatur rem et eum
+                    id tempore fugit laborum!</p>
+            </li>
+            <li class="main-gallery__item" data-nav="2">
+                <h2 class="main-gallery__heading">Wunderprint</h2>
+                <p class="main-gallery__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+                    enim quod, ab eum voluptate unde nulla cum error et delectus eaque inventore? Aspernatur rem et eum
+                    id tempore fugit laborum!</p>
+            </li>
+        </ul>
+
+
+        <!-- obrazy poniżej są domyślnie display:none, potrzeba ich jedynie do skopiowania ścieżek src -->
+        <div class="main-gallery__wrap" id="wrapImages">
+            <img class="main-gallery__img" src="./img/1.png" alt="img">
+            <img class="main-gallery__img" src="./img/2.jpg" alt="img">
+            <img class="main-gallery__img" src="./img/3.png" alt="img">
+        </div>
+    </section>
+
+    <div id="container" class="threeJS__container"></div>
 
     <script src="app.js"></script>
 </body>

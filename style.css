@@ -1,33 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;400&display=swap");
 body {
   overflow: hidden;
+  background: #eeeeee;
+  margin: 0;
+  padding: 0;
 }
 
-.block {
-  height: 100px;
-  width: 100px;
-  position: absolute;
-  z-index: 100;
-  background: red;
-}
-
-#container {
-  width: 100vw;
+.threeJS__container {
+  width: 50vw;
   height: 100vh;
   top: 0;
-  left: 0;
+  right: 0;
   position: fixed;
   z-index: -1;
   pointer-events: none;
 }
 
-ul {
-  position: fixed;
-  right: 0;
-  top: 0;
+.main-gallery {
+  width: 100%;
+}
+
+.main-gallery__wrap {
+  display: none;
+}
+
+.main-gallery__items {
   z-index: 100;
-  border: 1px solid black;
-  width: 200px;
+  padding: 1.5rem 2.5rem;
+  margin: 0;
+  color: black;
+  width: calc(50% - 3rem);
   list-style-type: none;
   font-size: 30px;
+  height: calc(100vh - 3rem);
+  position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.main-gallery__item {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main-gallery__heading {
+  font-family: 'Cormorant Infant', serif;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+.main-gallery__description {
+  font-size: 1.2rem;
+  font-family: 'Cormorant Infant', serif;
+  font-weight: 400;
+}
+
+.main-gallery__floral {
+  position: absolute;
+  max-width: 5%;
+  left: 2.5rem;
+  bottom: 2.5rem;
 }
 /*# sourceMappingURL=style.css.map */

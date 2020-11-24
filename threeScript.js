@@ -1,10 +1,10 @@
 import * as THREE from 'three';
 import fragment from './shaders/fragment.glsl';
 import vertex from './shaders/vertex.glsl';
-import * as dat from "dat.gui";
-import {
-    TimelineMax
-} from "gsap";
+// import * as dat from "dat.gui";
+// import {
+//     TimelineMax
+// } from "gsap";
 
 
 
@@ -16,7 +16,6 @@ export default class Sketch {
             antialias: true
         });
         document.getElementById('container').appendChild(this.renderer.domElement);
-        // document.getElementById('container').appendChild(this.renderer.domElement);
         this.scene = new THREE.Scene();
 
         this.width = this.offsetWidth;
@@ -29,9 +28,9 @@ export default class Sketch {
         this.renderer.outputEncoding = THREE.sRGBEncoding;
 
         this.container = options.dom;
-        this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.001, 1000);
+        this.camera = new THREE.PerspectiveCamera(70, (window.innerWidth / 2) / window.innerHeight, 0.001, 1000);
 
-        this.camera.position.set(0, 0, 2);
+        this.camera.position.set(0, 0, 1.8);
         // this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
         this.time = 0;
@@ -49,7 +48,7 @@ export default class Sketch {
     }
 
     handleImages() {
-        let images = [...document.querySelectorAll('img')];
+        let images = [...document.querySelectorAll('.main-gallery__img')];
         images.forEach((im, i) => {
             let mat = this.material.clone()
             this.materials.push(mat);
@@ -58,7 +57,7 @@ export default class Sketch {
             mat.uniforms.texture1.value = new THREE.Texture(im);
             mat.uniforms.texture1.value.needsUpdate = true;
 
-            let geo = new THREE.PlaneBufferGeometry(1, 1, 20, 20);
+            let geo = new THREE.PlaneBufferGeometry(1.51, 1, 20, 20);
             let mesh = new THREE.Mesh(geo, mat);
             group.add(mesh);
             this.groups.push(group);
@@ -72,15 +71,15 @@ export default class Sketch {
         });
     }
 
-    settings() {
-        let that = this;
-        this.settings = {
-            progress: 0,
-        };
+    // settings() {
+    //     let that = this;
+    //     this.settings = {
+    //         group.rotation.x: 0,
+    //     };
 
-        this.gui = new dat.GUI();
-        this.gui.add(this.settings, "progress", 0, 1, 0.01);
-    }
+    //     this.gui = new dat.GUI();
+    //     this.gui.add(this.settings, "progress", 0, 1, 0.01);
+    // }
 
     setupResize() {
         window.addEventListener("resize", this.resize.bind(this));
@@ -92,7 +91,7 @@ export default class Sketch {
         this.renderer.setSize(this.width, this.height);
         this.camera.aspect = this.width / this.height;
 
-        this.imageAspect = 1 / 1;
+        this.imageAspect = 1.51 / 1;
         let a1, a2;
         if (this.height / this.width > this.imageAspect) {
             a1 = (this.width / this.height) * this.imageAspect;
@@ -143,10 +142,6 @@ export default class Sketch {
             fragmentShader: fragment
 
         });
-
-        // this.geometry = new THREE.PlaneGeometry(1, 1, 1, 1);
-        // this.plane = new THREE.Mesh(this.geometry, this.material);
-        // this.scene.add(this.plane);
     }
 
     stop() {
@@ -169,10 +164,7 @@ export default class Sketch {
                 m.uniforms.time.value = this.time;
             })
         }
-        // this.material.uniforms.time.value = this.time;
         requestAnimationFrame(this.render.bind(this));
         this.renderer.render(this.scene, this.camera);
     }
 }
-
-// new Sketch();
