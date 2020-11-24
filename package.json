@@ -1,10 +1,15 @@
 {
-  "name": "threeJSGallery",
+  "name": "index",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel ./index.html",
+    "prebuild-dev": "shx rm -rf dist/*",
+    "build-dev": "parcel build ./index.html --no-minify --public-url ./",
+    "prebuild": "shx rm -rf dist/*",
+    "build": "parcel build ./index.html --public-url ./",
+    "push-gh-pages": "push-dir --dir=dist --branch=root --cleanup --verbose"
   },
   "repository": {
     "type": "git",
@@ -25,6 +30,7 @@
     "dat.gui": "^0.7.7",
     "gsap": "^3.5.1",
     "parcel": "^1.12.4",
-    "three": "^0.122.0"
+    "three": "^0.122.0",
+    "shx": "^0.3.2"
   }
 }

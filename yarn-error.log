@@ -1,0 +1,61 @@
+Arguments: 
+  /usr/bin/node /usr/share/yarn/bin/yarn.js install
+
+PATH: 
+  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Python39/Scripts/:/mnt/c/Python39/:/mnt/c/Python27/:/mnt/c/Python27/Scripts:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/xampp/php:/mnt/c/ProgramData/ComposerSetup/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Common Files/Autodesk Shared/:/mnt/c/Program Files/Microsoft SQL Server/120/Tools/Binn/:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/nodejs/:/mnt/c/Users/voide/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/voide/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/voide/AppData/Roaming/Composer/vendor/bin:/mnt/c/Users/voide/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/voide/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/voide/AppData/Roaming/npm:/snap/bin
+
+Yarn version: 
+  1.22.5
+
+Node version: 
+  15.2.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: EIO: i/o error, unlink '/mnt/c/Users/voide/OneDrive/Documents/GitHub/threeJSGallery/node_modules/deasync/bin/win32-x64-node-14/deasync.node'
+
+npm manifest: 
+  {
+    "name": "index",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+      "start": "parcel ./index.html",
+      "prebuild-dev": "shx rm -rf dist/*",
+      "build-dev": "parcel build ./index.html --no-minify --public-url ./",
+      "prebuild": "shx rm -rf dist/*",
+      "build": "parcel build ./index.html --public-url ./",
+      "push-gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Voidereles/threeJSGallery.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/Voidereles/threeJSGallery/issues"
+    },
+    "homepage": "https://github.com/Voidereles/threeJSGallery#readme",
+    "devDependencies": {
+      "glslify-bundle": "^5.1.1",
+      "glslify-deps": "^1.3.1"
+    },
+    "dependencies": {
+      "dat.gui": "^0.7.7",
+      "gsap": "^3.5.1",
+      "parcel": "^1.12.4",
+      "three": "^0.122.0",
+      "shx": "^0.3.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
