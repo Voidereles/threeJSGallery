@@ -42434,4 +42434,4 @@ maximizeBtn.addEventListener('mouseleave', function () {
 //     })
 // })
 },{"./threeScript.js":"oH7B","gsap":"f8Z0"}]},{},["A2T1"], null)
-//# sourceMappingURL=app.js.map
+//# sourceMappingURL=/app.js.map
