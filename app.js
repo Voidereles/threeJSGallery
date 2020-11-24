@@ -1,5 +1,6 @@
 import Sketch from './threeScript.js';
 // import gsap from 'gsap';
+
 let ske = new Sketch({
     dom: document.getElementById('container')
 });
@@ -21,24 +22,32 @@ window.addEventListener('wheel', (e) => {
     //wheel works for the touch
 });
 
+const clamp = (value, min, max) => {
+    if (value < min) return min;
+    if (value > max) return max;
+    return value;
+}
 
 function raf() {
     position += speed;
     speed *= 0.8; //increasing the speed will keep the speed from going down
-
+    // position = Math.min(Math.max(position, imgCount - 0.7), -1);
+    position = clamp(position, -0.45, 2.45);
+    console.log(position);
     objs.forEach((o, i) => {
         o.dist = 1;
 
         let scale = 1 + 0.2 * o.dist;
-        if (position >= -0.45 && position <= imgCount - 0.45) {
-            ske.meshes[i].position.y = -(i * 1.2 - position * 1.2);
-        }
-        if (position <= -0.45) {
-            position = 0;
-        }
-        if (position > imgCount - 0.45) {
-            position = position - 0.45;
-        }
+        // console.log(rounded);
+        // if (position >= -0.45 && position <= imgCount - 0.45) {
+        ske.meshes[i].position.y = -(i * 1.2 - position * 1.2);
+        // }
+        // if (position <= -0.45) {
+        //     position = 0;
+        // }
+        // if (position > imgCount - 0.45) {
+        //     position = position - 0.45;
+        // }
         // ske.meshes[i].position.x = 0.3 * (i * 1.2 - position * 1.2);
         // ske.meshes[i].rotation.x = -(i * 1.1 - position * 1.2);
         // ske.meshes[i].position.z = i * 1.2 - position * 1.2;
@@ -56,7 +65,7 @@ function raf() {
     position += Math.sign(diff) * Math.pow(Math.abs(diff), 0.7) * 0.035;
 
     //wrap is the text container on the left
-    wrap.style.transform = `translate(0,calc(-${rounded*100}%)`;
+    wrap.style.transform = `translate(0,${rounded*-100}%`;
 
     // raf - request animation frame
     window.requestAnimationFrame(raf);
